@@ -3,6 +3,7 @@ const path = require('path');
 
 const app = express();
 
+
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
