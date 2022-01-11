@@ -4,13 +4,17 @@ const logger = require('./middleware/logger');
 
 const app = express();
 
-// Initialize middleware
+// Initialize Middleware
 // app.use(logger);
 
+// Body Parser Middleware
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Runs API Routes
 app.use('/api/runs', require('./routes/api/runs'));
 
 const PORT = process.env.PORT || 5000;
